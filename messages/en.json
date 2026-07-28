@@ -1,0 +1,141 @@
+{
+  "header": {
+    "top bar": "Refresh your home's colors with a professional touch — contact us for a free estimate",
+    "price": "Price",
+    "nav": {
+      "overview": "Overview"
+    },
+    "mobileMenu": {
+      "overview": "Overview"
+    }
+  },
+
+  "main": {
+    "title": "Welcome to Professional Painting and Contracting Services",
+    "des": "We offer complete solutions in painting, finishing, and contracting works, with high quality and precise execution that reflects extensive industry experience. We are committed to transforming your space into a more beautiful and luxurious place, using the finest materials and the latest techniques."
+  },
+
+  "sections": {
+    "section1": {
+      "subtitle": "Our Portfolio",
+      "title": "Projects That Reflect Our Craftsmanship",
+      "description": "Explore a selection of our completed painting and finishing projects, showcasing our commitment to quality, precision, and attention to every detail."
+    },
+    "section2": {
+      "subtitle": "Our Services",
+      "title": "Professional Painting Solutions",
+      "description": "From interior and exterior painting to specialty finishes, we deliver exceptional craftsmanship using premium materials and proven techniques.",
+      "card1": {
+        "article1": "Interior Painting",
+        "article2": "Outstanding performance with high quality",
+        "paragraph": "We provide professional painting services with outstanding performance and high quality, relying on the finest materials and the latest execution methods to ensure precise finishes that last a long time. Our team works with expertise and professionalism to complete all interior and exterior painting works accurately and on schedule, while maintaining site cleanliness and delivering elegant results that meet our clients' expectations and achieve the highest levels of satisfaction."
+      },
+      "card2": {
+        "article1": "Exterior Painting",
+        "article2": "Protection and a distinctive exterior look for your home",
+        "paragraph": "Exterior painting is one of the most important elements of protecting buildings and enhancing their beauty, as it not only gives facades an elegant appearance but also provides an effective protective layer against sunlight, rain, humidity, and various weather conditions. We use high-quality exterior paints known for their durability, color stability, and resistance to cracking and peeling, while carefully selecting the right type for each surface to ensure the best results. Thanks to our experience in exterior painting works, we guarantee professional finishes that last for years and give your home or facility a modern and attractive look."
+      },
+      "card3": {
+        "article1": "Specialty Painting",
+        "article2": "Innovative solutions for unique needs",
+        "paragraph": "We offer specialty painting services that add a unique and luxurious touch to various spaces, using the latest techniques and finest materials to achieve distinctive finishes that suit all tastes. Our services include decorative painting, artistic effects, and various textures, in harmony with the interior and exterior design of the space. We are committed to executing every project with precision and professionalism, delivering results to our clients that combine beauty, quality, and durability, adding an exceptional character that lasts for years."
+      }
+    },
+
+    "section3": {
+      "subtitle": "Color Collection",
+      "title": "Choose Your Perfect Shade",
+      "description": "Explore a carefully selected palette of elegant colors designed to suit every style and transform any space.",
+      "colors": [
+        { "name": "Warm Gold", "code": "#C9A227" },
+        { "name": "Coral", "code": "#E8896A" },
+        { "name": "Marine Blue", "code": "#4A7B9D" },
+        { "name": "Sage Green", "code": "#6B8F71" },
+        { "name": "Terracotta", "code": "#B5654A" },
+        { "name": "Royal Purple", "code": "#7B5EA7" },
+        { "name": "Emerald Blue", "code": "#2E6B7A" },
+        { "name": "Creamy Beige", "code": "#D9C5A0" },
+        { "name": "Dark Brown", "code": "#5C3D2E" },
+        { "name": "Deep Navy", "code": "#0F1C2E" },
+        { "name": "Light Green", "code": "#A8C5B8" },
+        { "name": "Warm White", "code": "#F0E6D3" }
+      ]
+    },
+
+    "section4": {
+      "years": "Years of Experience",
+      "description": "A journey filled with creativity and professionalism in delivering the finest designs",
+      "features": [
+        {
+          "title": "Exceptional Quality",
+          "desc": "Full commitment to the highest quality standards in every detail"
+        },
+        {
+          "title": "Exclusive Design",
+          "desc": "Unique ideas tailored specifically to suit your taste"
+        },
+        {
+          "title": "Premium Materials",
+          "desc": "Careful selection of the finest global materials"
+        },
+        {
+          "title": "Client Trust",
+          "desc": "Long-term relationships built on professionalism and honesty"
+        }
+      ]
+    },
+
+    "section5": {
+      "subtitle": "Client Testimonials",
+      "title": "What They Say About Us",
+      "description": "Our clients' satisfaction is the best testament to the quality of our work",
+      "testimonials": [
+        {
+          "name": "Sarah Al-Otaibi",
+          "role": "Client",
+          "review": "An exceptional experience from start to finish, with attention to the finest details and results that exceeded expectations."
+        },
+        {
+          "name": "Mohammed Al-Qahtani",
+          "role": "Client",
+          "review": "High professionalism and refined taste in selecting every element, I recommend them with complete confidence."
+        },
+        {
+          "name": "Noura Al-Dosari",
+          "role": "Client",
+          "review": "A cooperative team with results that truly reflect luxury and quality in every detail."
+        },
+        {
+          "name": "Khalid Al-Mutairi",
+          "role": "Client",
+          "review": "Punctuality and high-quality execution, an experience I recommend to anyone seeking excellence."
+        },
+        {
+          "name": "Reem Al-Shammari",
+          "role": "Client",
+          "review": "Creative touches and refined taste turned my space into a true work of art."
+        },
+        {
+          "name": "Abdullah Al-Harbi",
+          "role": "Client",
+          "review": "Elegant and professional dealings from the first moment until project delivery, thank you to this outstanding team."
+        }
+      ]
+    }
+  },
+
+  "footer": {
+    "logo": "Master Painters",
+    "description": "We offer you the finest designs and luxurious solutions with a professional touch that reflects your distinction.",
+    "quickLinksTitle": "Quick Links",
+    "contactTitle": "Contact Us",
+    "phone": "+966 53 779 4871",
+    "email": "Salah20131011@gmail.com",
+    "address": "Riyadh",
+    "copyright": "© {year} All rights reserved."
+  },
+
+  "BaseButton": {
+    "start": "Start now"
+  }
+}
