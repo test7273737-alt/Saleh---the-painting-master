@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
 import "../globals.css";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 
 const almarai = Almarai({
   subsets: ["arabic"],
@@ -59,6 +60,21 @@ export default async function RootLayout({
         locale === "ar" ? almarai.className : openSans.className
       } antialiased`}
     >
+      <Script
+        id="local-business-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            name: "مقاول دهانات ومصمم ديكورات",
+            telephone: "+966537794871",
+            url: "https://paint-master-pro.netlify.app/ar",
+            areaServed: "Saudi Arabia",
+            availableLanguage: ["ar", "en"],
+          }),
+        }}
+      />
       <body className="bg-zinc-50 dark:bg-zinc-950">
         <ThemeProvider
           attribute="class"
