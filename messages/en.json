@@ -1,12 +1,11 @@
 {
   "header": {
-    "top bar": "Refresh your home's colors with a professional touch — contact us for a free estimate",
-    "price": "Price",
+    "topBar": "Refresh your home's colors with a professional touch — contact us for a free estimate",
     "nav": {
-      "overview": "Overview"
+      "contactMe": "Contact me"
     },
     "mobileMenu": {
-      "overview": "Overview"
+      "contactMe": "Contact me"
     }
   },
 
@@ -135,7 +134,12 @@
     "copyright": "© {year} All rights reserved."
   },
 
-  "BaseButton": {
-    "start": "Start now"
+  "BaseLink": {
+    "contactMe": "Contact me"
+  },
+
+  "titles": {
+    "email": "email",
+    "phoneNumber": "Phone number"
   }
 }
