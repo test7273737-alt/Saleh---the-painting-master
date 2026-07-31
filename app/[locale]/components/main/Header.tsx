@@ -91,7 +91,7 @@ const Header = () => {
           </a>
         </div>
         <h1 className="w-full h-full flex justify-center items-center text-center text-white dark:text-white lg:w-max lg:h-full">
-          {t("header.top bar")}
+          {t("header.topBar")}
         </h1>
         <div className="w-full h-px absolute left-0 bottom-0 bg-linear-to-r from-transparent via-neutral-400 to-transparent"></div>
       </div>
