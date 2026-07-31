@@ -18,7 +18,7 @@ const MobileMenu = ({ isExceeded }: MobileMenuPropsType) => {
   const menuItems = [
     {
       id: 1,
-      label: t("header.mobileMenu.overview"),
+      label: t("header.mobileMenu.contactMe"),
       icon: FaPaintRoller,
     },
   ];

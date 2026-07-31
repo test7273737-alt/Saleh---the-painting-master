@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslations } from "next-intl";
-import BaseButton from "../ui/BaseButton";
+import BaseLink from "../ui/BaseLink";
 
 const Main = () => {
   const t = useTranslations();
@@ -14,19 +14,12 @@ const Main = () => {
         <p className="text-sm text-shadow-lg relative z-20 text-white">
           {t("main.des")}
         </p>
-        <BaseButton
-          onClick={() => {
-            const section = document.getElementById("overview");
-            if (!section) return;
-            section.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }}
+        <BaseLink
+          href="tel:+966537794871"
           className="w-50 h-12 flex justify-center items-center rounded-lg shadow-2xl relative z-20 border border-white/20 text-black bg-zinc-300 dark:text-white dark:bg-zinc-900"
         >
-          {t("BaseButton.start")}
-        </BaseButton>
+          {t("BaseButton.contactMe")}
+        </BaseLink>
       </div>
     </main>
   );

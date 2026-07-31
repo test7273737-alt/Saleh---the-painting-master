@@ -3,6 +3,7 @@ import React from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import MobileMenu from "../ui/MobileMenu";
+import BaseLink from "../ui/BaseLink";
 import BaseButton from "../ui/BaseButton";
 import { CgDarkMode } from "react-icons/cg";
 import { IoLanguageSharp } from "react-icons/io5";
@@ -100,17 +101,9 @@ const Header = () => {
         <nav className="hidden md:h-full md:flex md:items-center md:gap-10">
           <ul className="h-full flex justify-center items-center gap-10">
             <li>
-              <BaseButton
-                onClick={() => {
-                  document.getElementById("overview")?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
-                }}
-                className=""
-              >
-                {t("header.nav.overview")}
-              </BaseButton>
+              <BaseLink className="" href="tel:+966537794871">
+                {t("header.nav.contactMe")}
+              </BaseLink>
             </li>
           </ul>
         </nav>

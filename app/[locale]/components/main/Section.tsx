@@ -8,7 +8,7 @@ type SectionType = {
 const Section = React.forwardRef<HTMLElement, SectionType>(
   ({ className, children }, ref) => {
     return (
-      <section ref={ref} className={`${className} fade-up`}>
+      <section ref={ref} className={`${className}`}>
         {children}
       </section>
     );

@@ -436,6 +436,30 @@ const Sections = () => {
     );
   }, []);
 
+  useGSAP(() => {
+    const fadeUp = gsap.utils.toArray<HTMLElement>(".fade-up");
+    fadeUp.forEach((part) => {
+      gsap.fromTo(
+        part,
+        {
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: part,
+            start: "top 50%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
+    });
+  });
+
   return (
     <>
       <Header />
@@ -461,7 +485,7 @@ const Sections = () => {
       </div>
       <div className="flex flex-col gap-10 p-5 lg:hidden">
         {combinedSectionsData.map((section) => (
-          <Section key={section.id} className="w-full">
+          <Section key={section.id} className="w-full fade-up">
             {section.component.copy2}
           </Section>
         ))}

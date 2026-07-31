@@ -15,7 +15,7 @@ const Bg = () => {
           hoverDampness={0.25}
           rayCount={0}
           mixBlendMode="lighten"
-          colors={["#ffffff", "#ffffff", "#ffffff"]}
+          colors={["#615fff", "#00bc7d", "#8e51ff"]}
         />
       </div>
     </div>
