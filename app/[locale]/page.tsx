@@ -4,7 +4,6 @@ import Bg from "./components/main/Bg";
 import QuickContact from "./components/ui/QuickContact";
 import PageWrapper from "./components/ui/PageWrapper";
 import MobileMenu from "../[locale]/components/ui/MobileMenu";
-import ButtonMenu from "./components/ui/ButtonMenu";
 import Header from "./components/main/Header";
 import Corsur from "./components/ui/Corsur";
 import dynamic from "next/dynamic";
@@ -21,7 +20,6 @@ const Page = () => {
         <Bg />
         <Sections />
         <QuickContact />
-        <ButtonMenu />
       </PageWrapper>
       <MobileMenu />
       <Corsur />
