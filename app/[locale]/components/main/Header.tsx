@@ -2,7 +2,6 @@
 import React from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { BsFillTelephoneFill } from "react-icons/bs";
-import MobileMenu from "../ui/MobileMenu";
 import BaseLink from "../ui/BaseLink";
 import BaseButton from "../ui/BaseButton";
 import { CgDarkMode } from "react-icons/cg";
@@ -10,6 +9,9 @@ import { IoLanguageSharp } from "react-icons/io5";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
+import ButtonMenu from "../ui/ButtonMenu";
+import { useMenuStore } from "@/store/useMenuStore";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Header = () => {
   const t = useTranslations();
@@ -20,6 +22,7 @@ const Header = () => {
   const [scrollY, setScrollY] = React.useState<number>(0);
   const [isDown, setIsdown] = React.useState<boolean>(false);
   const [isExceeded, setIsExceeded] = React.useState<boolean>(false);
+  const isMenuOpen = useMenuStore((state) => state.isMenuOpen);
 
   const handleChangeLang = () => {
     const newLang = locale === "ar" ? "en" : "ar";
@@ -60,8 +63,29 @@ const Header = () => {
   }, [scrollY]);
 
   return (
-    <header
-      className={`${isDown ? "-top-full" : "top-5"} ${isExceeded ? "h-20 border-t border-zinc-500/30 bg-linear-to-b from-zinc-50 to-zinc-300 dark:from-zinc-900 dark:to-black" : "h-40 border-none rounded-bl-2xl backdrop-blur-2xl bg-[rgba(255,255,255,0.1)] dark:bg-[rgba(0,0,0,0.1)]"} flex flex-col fixed right-5 left-5 translate-x-0 rounded-2xl z-30 transition-all duration-300`}
+    <motion.header
+      animate={{
+        top: isDown ? "-100%" : 20,
+        ...(locale === "ar"
+          ? {
+              right: 20,
+              x: isMenuOpen ? 350 : 0,
+            }
+          : {
+              left: 20,
+              x: isMenuOpen ? -350 : 0,
+            }),
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 350,
+        damping: 35,
+      }}
+      className={`${
+        isExceeded
+          ? "h-20 border-t border-zinc-500/30 bg-linear-to-b from-zinc-50 to-zinc-300 dark:from-zinc-900 dark:to-black"
+          : "h-40 border-none rounded-bl-2xl backdrop-blur-2xl bg-[rgba(255,255,255,0.1)] dark:bg-[rgba(0,0,0,0.1)]"
+      } flex flex-col fixed top-5 right-5 left-5 z-30 rounded-2xl`}
     >
       <div className="pointer-events-none absolute inset-0 opacity-20 dark:opacity-10 bg-[radial-gradient(circle_at_top,#71717b,transparent_60%)]" />
       <div className="h-0.5 w-full bg-linear-to-r from-transparent via-zinc-400 to-transparent" />
@@ -107,8 +131,8 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className="h-full flex justify-start items-center gap-10">
-          <MobileMenu isDown={isDown} isExceeded={isExceeded} />
+        <div className="h-full flex justify-end items-center gap-10">
+          <ButtonMenu />
           <BaseButton onClick={handleChangeMode}>
             <span
               className={`${isExceeded ? "text-black dark:text-white" : "text-white dark:text-white"} text-2xl`}
@@ -125,7 +149,7 @@ const Header = () => {
           </BaseButton>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

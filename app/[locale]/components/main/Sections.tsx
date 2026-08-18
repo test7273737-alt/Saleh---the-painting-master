@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Header from "./Header";
 import Main from "./Main";
 import Section from "./Section";
 import Image from "next/image";
@@ -49,11 +48,12 @@ const Sections = () => {
       component: (
         <Image
           src={`/images/BaseSlider/${num}.jpeg`}
-          loading="lazy"
           className="w-full h-full object-cover"
           width={1920}
           height={1080}
           alt={`Image ${num}`}
+          sizes="(max-width: 768px) 100vw, 370px"
+          priority={true}
         />
       ),
     };
@@ -462,10 +462,9 @@ const Sections = () => {
 
   return (
     <>
-      <Header />
       <Main />
       <div
-        className="hidden lg:h-dvh lg:overflow-hidden lg:flex lg:flex-row-reverse lg:justify-center lg:gap-5 lg:pt-30 lg:pb-5 lg:rounded-2xl"
+        className="hidden lg:h-dvh overflow-hidden lg:flex lg:flex-row-reverse lg:justify-center lg:gap-5 lg:pt-30 lg:pb-5 lg:rounded-2xl"
         id="overview"
         ref={sectionsContainerRef}
       >

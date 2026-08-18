@@ -10,10 +10,12 @@ import Script from "next/script";
 const almarai = Almarai({
   subsets: ["arabic"],
   weight: ["300", "400", "700", "800"],
+  display: "swap",
 });
 
 const openSans = Open_Sans({
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {

@@ -1,19 +1,21 @@
 "use client";
-import React from "react";
-import { CiMenuBurger } from "react-icons/ci";
-import BaseButton from "./BaseButton";
+
+import React, { useRef, useEffect } from "react";
 import { FaPaintRoller } from "react-icons/fa";
 import { useTranslations } from "next-intl";
+import { AnimatePresence, motion } from "framer-motion";
+import BaseButton from "./BaseButton";
+import { useMenuStore } from "@/store/useMenuStore";
+import { useLocale } from "next-intl";
 
-type MobileMenuPropsType = {
-  isDown: boolean;
-  isExceeded: boolean;
-};
-
-const MobileMenu = ({ isExceeded }: MobileMenuPropsType) => {
+const MobileMenu = () => {
   const t = useTranslations();
-  const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>();
-  const menuRef = React.useRef<HTMLDivElement>(null);
+  const isMenuOpen = useMenuStore((state) => state.isMenuOpen);
+  const closeMenu = useMenuStore((state) => state.closeMenu);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const locale = useLocale();
+  const isRtl = locale === "ar";
+  const slideOffscreen = isRtl ? "-100%" : "100%";
 
   const menuItems = [
     {
@@ -23,63 +25,65 @@ const MobileMenu = ({ isExceeded }: MobileMenuPropsType) => {
     },
   ];
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsMenuOpen(false);
+        closeMenu();
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [closeMenu]);
 
-  const handleToggle = () => setIsMenuOpen((prev) => !prev);
   return (
-    <div ref={menuRef} className="h-full relative z-30 md:hidden">
-      <button
-        onClick={handleToggle}
-        className="h-full flex justify-center items-center"
-      >
-        <span
-          className={`${isExceeded ? "text-black dark:text-white" : "text-white dark:text-white"} text-3xl `}
+    <AnimatePresence>
+      {isMenuOpen && (
+        <motion.aside
+          ref={menuRef}
+          initial={{ x: slideOffscreen, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: slideOffscreen, opacity: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 350,
+            damping: 35,
+          }}
+          className="fixed inset-y-0 right-0 z-100 w-80 bg-zinc-300 dark:bg-black"
         >
-          <CiMenuBurger />
-        </span>
-      </button>
-      <div
-        className={`${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"} ${isExceeded ? "top-25" : "top-45"} h-22.5 flex flex-col gap-5 py-5 px-2.5 overflow-hidden fixed right-0 left-0 rounded-2xl transition-all duration-300 border border-zinc-500/30 bg-linear-to-b from-zinc-100 to-zinc-300 dark:from-zinc-900 dark:to-black`}
-      >
-        {menuItems.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <React.Fragment key={item.id}>
-              <BaseButton
-                onClick={() => {
-                  const section = document.getElementById("overview");
-                  if (!section) return;
-                  section.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
-                }}
-                className="w-full h-12 flex justify-between items-center px-5 transition-all duration-300 rounded-lg border border-white/30 bg-zinc-50 dark:bg-zinc-900"
-              >
-                <span className="text-black dark:text-white">{item.label}</span>
-                <span className="text-white">
-                  <Icon />
-                </span>
-              </BaseButton>
-
-              {index !== menuItems.length - 1 && (
-                <span className="w-full h-px flex bg-[#C9A227]/20"></span>
-              )}
-            </React.Fragment>
-          );
-        })}
-      </div>
-    </div>
+          <div className="w-full h-full flex flex-col gap-5 p-5">
+            {menuItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <React.Fragment key={item.id}>
+                  <BaseButton
+                    onClick={() => {
+                      closeMenu();
+                      const section = document.getElementById("overview");
+                      if (section) {
+                        section.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
+                      }
+                    }}
+                    className="w-full h-12 flex justify-between items-center px-5 rounded-lg shadow-[inset_0_0_50px_rgba(255,255,255,0.2)]"
+                  >
+                    <span className="text-black dark:text-white">
+                      {item.label}
+                    </span>
+                    <span className="text-white">
+                      <Icon />
+                    </span>
+                  </BaseButton>
+                </React.Fragment>
+              );
+            })}
+          </div>
+        </motion.aside>
+      )}
+    </AnimatePresence>
   );
 };
 
