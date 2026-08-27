@@ -50,7 +50,7 @@ const MobileMenu = () => {
             stiffness: 350,
             damping: 35,
           }}
-          className="fixed inset-y-0 right-0 z-100 w-80 bg-zinc-300 dark:bg-black"
+          className="fixed inset-y-0 inset-s-1/2 z-100 w-80 bg-zinc-300 dark:bg-black"
         >
           <div className="w-full h-full flex flex-col gap-5 p-5">
             {menuItems.map((item) => {
